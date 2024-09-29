@@ -1,0 +1,762 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3494e6, #ec6ead); /* Gradient background */
+  }
+    
+    
+  /* Resetting default browser styles */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  /* Navbar container */
+  .navbar {
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 15px 30px; */
+      background: linear-gradient(to right, #21c46a, #9ad315);
+      color: rgb(19, 16, 16);
+      font-family: Arial, sans-serif;
+      max-height: 70px;
+  }
+  
+  /* Student Name and Passage Info */
+  .student-name,
+  .passage-info {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #3498db; /* Blue border */
+      background-color: #f9f9f9; /* Light grey background */
+      border-radius: 15px;
+      text-align: center;
+      width: 180px;
+      height: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333; /* Dark grey text color */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .student-name:hover,
+  .passage-info:hover {
+      background-color: #3498db; /* Blue background on hover */
+      color: #fff; /* White text color on hover */
+      transform: translateY(-2px); /* Move element up on hover */
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+      cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  
+  
+  
+  /* Passage selectors */
+  /* Your CSS styles for the passage selector */
+  .passage-selector {
+    margin-bottom: 20px;
+    display:flex;
+  }
+  
+  .passage-selector-select {
+    border-radius: 20px;
+    width: 80px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius:20px;
+    margin-top:15px;
+  }
+  
+  
+  
+  
+  /* Time selectors */
+  .time-selector {
+    display:flex;
+    margin-right: 20px;
+  }
+  .time-selector button{
+    padding:0;
+   padding-right:5px;
+   padding-left:5px;
+    width:90px;
+    max-height:30px;
+  }
+  
+  #timeInput {
+  height:30px;
+  }
+  
+  /* Font controls */
+  .font-controls {
+      display: flex;
+      align-items: center;
+  }
+  
+  /* Adjust Font Size buttons */
+  .font-controls button {
+      margin-left: 5px;
+      padding: 8px 15px;
+      border: none;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+  }
+  
+  .font-controls button:hover {
+      background-color: #45a049;
+  }
+  
+  /* Timer info */
+  .time-info {
+      display: flex;
+      align-items: center;
+  }
+  
+  /* Timer reset button */
+  
+  
+  #resetTimeButton:hover {
+      background-color: #d32f2f;
+  }
+  #startTimerButton:hover {
+    background-color: #d32f2f;
+  }
+  #closeButton{
+    background-color: rgb(206, 17, 17);
+  }
+    /* Main container1 styles */
+    #maincontainer{display:none;}
+    .container1 {
+      max-width: 1200px;
+      margin: 10px 20px; /* Center the container */
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* Align items at the start */
+    }
+    
+    /* Box and textarea styles */
+    .box, textarea {
+      background-color: #fff; /* White background */
+      
+      font-weight:bold;
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 22px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 1100px; /* Retain width for desktop */
+      font-family: 'Arial', sans-serif; /* Use Arial as the font family */
+      line-height: 1.6; /* Adjust line height for better readability */
+      word-spacing: 1px; /* Adjust word spacing */
+      margin-left:0;
+    }
+    
+    .box {
+      height: 250px; /* Increased height */
+      margin-bottom: 20px; /* Add margin */
+      overflow: auto; /* Make the box scrollable */
+    }
+    
+    textarea {
+      height: 250px; /* Increased height */
+      width: 100%;
+      resize: vertical;
+    }
+    
+    /* Counts box styles */
+    #countsBox {
+      padding: 10px;
+      background-color: #f5f5f5; /* Light gray background */
+      border: 1px solid #ddd; /* Light gray border */
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      width: 240px; /* Set width */
+      text-align: left; /* Align text to the left */
+      display: flex; /* Use flexbox */
+      flex-direction: column; /* Align items vertically */
+      font-size:20px;
+      margin-left:2px;
+  }
+  
+  #countsBox span {
+      margin-bottom: 10px; /* Add space between elements */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a modern sans-serif font */
+      font-size: 20px; /* Set font size */
+      color: #333; /* Dark gray text color */
+      line-height: 1.4; /* Improved readability with slightly increased line height */
+  }
+  
+  #countsBox span:last-child {
+      margin-bottom: 0; /* Remove margin bottom for the last span */
+  }
+  
+  
+  
+  
+    
+    /* Counts list styles */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #count li {
+      margin-bottom: 15px; /* Add margin between list items */
+      font-weight: bold; /* Make list items bold */
+      display: flex; /* Use flexbox */
+      justify-content: space-between; /* Align items with space between */
+      align-items: center; /* Align items vertically */
+    }
+    
+    /* Submit button styles */
+    #submitBtn {
+      padding: 8px 16px; /* Decrease padding */
+      font-size: 20px;
+      background-color: #000080;
+      color: white; /* White text color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: auto; /* Set width to auto */
+      display: block; /* Change display to block */
+      margin: 0 auto; /* Center horizontally */
+      margin-top: 10px; /* Add margin top */
+      float:right;
+      margin-right:25%;
+    }
+    
+    #submitBtn:hover {
+      background-color: #0056b3; /* Darker blue button hover color */
+    }
+    .result1 {
+    
+      font-size: 16px;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: 0;
+      transform:translate(-50%,-50%);
+      padding: 0 ;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: 65%; /* Adjust the width as needed */
+      height: 90%; /* Adjust the height as needed */
+      overflow: auto; /* Enable scrolling if content exceeds height */
+      list-style-type: none;
+    }
+    /* CSS for the Reset Time button */
+    .prevent-selection {
+      user-select: none; /* Standard syntax */
+      -webkit-user-select: none; /* WebKit (Safari, Chrome) */
+      -moz-user-select: none; /* Mozilla Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+  }
+  
+  #resetTimeButton,#startTimerButton {
+    background-color: #e8eee9; /* Green */
+    width: 80px;
+    border: none;
+    color: white;
+    padding: 8px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px; /* Add some space between the button and the timer */
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  #resetTimeButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .popup-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display:none;
+  }
+  
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* General Styles */
+  /* Container Styles */
+  /* Container Styles */
+  .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Top Section Styles */
+  .top-section {
+    background-color: #ff6f61; /* Coral */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 1s ease;
+  }
+  
+  .top-section h2 {
+    font-size: 28px;
+    color: #fff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .top-section p {
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Animation for Top Section */
+  
+  
+  /* Table Container Styles */
+  .table-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Table Styles */
+  .table {
+    width: 100%; /* Adjust width as needed */
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fdfd96;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  /* Fixed width for the second column */
+  .table td:nth-child(2) {
+    width: 100px; /* Adjust width as needed */
+  }
+  
+  /* Animated color change for table rows */
+  
+  .table tr:nth-child(even),
+  .table tr:nth-child(odd) {
+    animation: colorChange 1s infinite alternate; /* Alternate color change */
+  }
+  
+  /* Button Container Styles */
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Exit Button Styles */
+  .exit-button-container button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background: linear-gradient(to right, #ff6f61, #e86154); /* Red gradient */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .exit-button-container button:hover {
+    transform: translateY(-2px); /* Move button up on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  /* Instructions Container Styles */
+  .instructions-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Instructions Styles */
+  .instructions {
+    flex-basis: 48%;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .instructions h3 {
+    color: #ff6f61; /* Red */
+  }
+  
+  .instructions p {
+    color: #333;
+  }
+  
+  
+  /* Container Style */
+  .container2 {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust as needed */
+    height: 95%; /* Adjust as needed */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    z-index: 999; /* Ensure it's above other content */
+    overflow: hidden; /* Hide any overflow from child elements */
+  }
+  
+  /* Box Style */
+  .box2 {
+    font-family: 'Arial', sans-serif;
+    width: 45%; /* Adjust as needed */
+    margin: 0 10px;
+    border: 2px solid #3498db; /* Blue border */
+    padding: 20px; /* Increase padding for better spacing */
+    background-color: #fff; /* White background */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    height: 95%; /* Adjust as needed */
+    border-radius: 20px;
+    margin-bottom: 20px; /* Add margin between boxes */
+  }
+  
+  /* H4 Style */
+  .box2 h4 {
+    color: #3498db; /* Blue text color */
+     text-align: center;
+    margin-top: 0; /* Remove top margin */
+  }
+  
+  /* Button Style */
+  .box2 button {
+    background-color: #3498db; /* Blue button background color */
+    color: #fff; /* White button text color */
+    border: none;
+    padding: 10px 15px; /* Adjust button padding */
+    margin-top: 20px; /* Adjust top margin */
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s; /* Smooth button hover effect */
+  }
+  
+  .box2 button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  
+  
+  /* Signup form container */
+  /* Signup form container */
+  #signupForUser {
+    max-width: 400px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Form title */
+  .form-title {
+    margin-bottom: 20px;
+    color: #333; /* Dark Gray text color */
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Form inputs */
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555; /* Dark Gray text color */
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc; /* Light Gray border */
+    border-radius: 25px; /* Rounded corners */
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus,
+  input[type="date"]:focus {
+    border-color: #ff6b6b; /* Red border color on focus */
+  }
+  
+  /* Signup button */
+  input[type="button"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background-color: #ff6b6b; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  input[type="button"]:hover {
+    background-color: #ff8c69; /* Lighter Red on hover */
+  }
+  
+  /* Error message */
+  .error {
+    color: #ff0000; /* Red error message color */
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  /* Form container */
+  .containe3 {
+    width: 350px;
+    margin: 50px auto; /* Center the form vertically */
+    padding: 30px;
+    background-color: #f9f9f9; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form title */
+  .containe3 h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Increased letter spacing */
+  }
+  
+  /* Form group */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Labels */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Input fields */
+  
+  
+  
+  
+  /* Login button */
+  button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue button background color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+    text-transform: uppercase; /* Uppercase text */
+    border-radius: 20px;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Signup button */
+  .signup-button button[type="button"] {
+    background-color: #28a745; /* Green button background color */
+  }
+  
+  .signup-button button[type="button"]:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Error message */
+  .error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Additional enhancements */
+  .containe3 {
+    transition: transform 0.3s ease-in-out; /* Smooth scale transition */
+  }
+  
+  .containe3:hover {
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
+  
+  textarea {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard syntax */
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 400px;
+    text-align: center;
+    animation: popupFadeIn 0.3s ease forwards;
+  }
+  
+  @keyframes popupFadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .popup h2 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .popup p {
+    color: #f1f1f1;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .confirm-button, .cancel-button {
+    background-color: #fff;
+    color: #3498db;
+    border: none;
+    padding: 15px 30px;
+    margin: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .confirm-button:hover, .cancel-button:hover {
+    background-color: #2980b9;
+    color: #fff;
+  }
+  
+  button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background: linear-gradient(to right, #ff6f61, #e86154); /* Red gradient */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    transform: translateY(-2px); /* Move button up on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  

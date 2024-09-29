@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Test</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="checkLoggedIn()">
+  <div id="loginForUser">
+    <div class="containe3">
+    <h1 style ="text-align: center;">Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="email" autocomplete="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" autocomplete="password" required>
+      </div>
+      
+      <div class="form-group">
+        <button type="button" onclick="handleLogin()">Login</button>
+      </div>
+      
+      <div class="form-group signup-button">
+        <button type="button" onclick="showSignUp()">Signup</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <div id="signupForUser">
+
+<h2 class="form-title">Signup Form</h2>
+<form id="signupForm"  method="post" >
+    <label for="signup_username">Username:</label>
+    <input type="text" id="signup_username" name="signup_username" autocomplete="username" required>
+    <label for="signup_password">Password:</label>
+    <input type="password" id="signup_password" name="signup_password" required>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="password" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" required>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+    <input type="button"  value="Signup" onclick="validateSignupForm()">
+    <p id="signupError" class="error"></p>
+</form>
+
+  </div>
+  
+    <div class=" popup confirmation-popup" id="confirmationPopup">
+      <h2>Confirm Action</h2>
+      <p>Are you sure you want to Submit this Test?</p>
+      <div class="button-container">
+        <button class="confirm-button" id="confirmButton" >Confirm</button>
+        <button class="cancel-button" id="cancelButton" onclick="enableInput()">Cancel</button>
+      </div>
+  </div>
+  <div class=" popup " id="TimeEndedPopup">
+    <h2>Time Ended</h2>
+    <p>Press Ok to get the result</p>
+    <div class="button-container">
+      <button class="confirm-button" id="OkButton" >Ok</button>
+      <button class="cancel-button" id="CancelTimeButton">Cancel</button>
+    </div>
+</div>
+<div id="maincontainer">
+  <div class="navbar">
+    <span class="student-name">Student Name:<span id="displayStudentName">StudentName</span></span>
+    <span class="passage-info">Passage Name: <span id="displaypassage">Passage 1</span></span>
+    
+    
+    <span class="passage-selector">
+      <select class="passage-selector-select" id="language-select" onchange = "if(value==='Marathi'){convertKeyBoardToMarathi();}else if(value === 'English'){convertKeyboardToEnglish()}">
+        <option value="English" >English</option>
+        <option value="Marathi" >Marathi</option>
+      </select>
+    
+      <select class="passage-selector-select" id="difficulty-select">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    
+      <select class="passage-selector-select" id="passage-select" onclick="changePassage( value)">
+        <!-- Options will be dynamically populated based on the selection in the first two selects -->
+      </select>
+    </span>
+    
+    <span class="time-selector">
+        <input id="timeInput" placeholder="Enter Time" onchange="updateTimerforSelect()">
+        <button id="startTimerButton" onclick="startTimerforButton()">Start Timer</button>
+    </span>
+    
+    <span class="time-info">
+        Time: <span id="screenTimer">10:00</span><button id="resetTimeButton" onclick="resetTimer()">Reset Time</button>
+    </span>
+    
+    <div class="font-controls">
+        <span>Adjust Font Size</span>
+        <button id="decreaseFontSize">-</button>
+        <button id="increaseFontSize">+</button>
+        <button id="closeButton" onclick ="logOut()">LogOut</button>
+    </div>
+</div>
+
+
+
+
+  
+
+<div class="container1">
+  <div class="left-side">
+    <div class="box prevent-selection" id="loremIpsumBox">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod justo vel eros cursus, id gravida purus interdum. Proin non justo et nisi hendrerit ultricies. Fusce vitae dui nec odio suscipit pulvinar. Aenean fermentum, elit nec commodo congue, enim purus cursus risus, id dignissim felis purus id tellus. In fermentum arcu nec justo finibus tristique.
+    </div>
+    <strong></strong><textarea name="text" id="textInput" spellcheck="false" autocomplete="off" placeholder="Type your text here..." ></textarea><strong>
+  </div>
+  <div class="right-side">
+    <div id="countsBox">
+      <ul id="count">
+        <li>Keystrokes count: <span id="keystrokesCount">0</span></li>
+        <li>Total Words Count: <span id="totalWordsCount">0</span></li>
+        <li>Typed Word count: <span id="wordCount">0</span></li>
+        <li>Pending Words Count: <span id="pendingWord">0</span></li>
+        <li>Backspace Count: <span id="backspaceCount">0</span></li>
+        <li>Error Counts: <span id="errorcount">0</span></li>
+      </ul>
+    </div>
+    <button id="submitBtn" onclick="stopTimer();openPopup();disableInput()"  >Submit</button>
+  </div>
+</div>
+</div>
+<div id="result1" class ="result1">
+  <div  class="container">
+    <h2 class="heading">Typing Test Results</h2>
+    <div class="top-section">
+      <div style="display:block;">
+        <p >Passage Name: <span id="TypedPassageName"></span></span></p></div>
+        <div><p>Used Typing Time: <span id ="usedtypingmin"></span>min <span id ="usedtypingsec"></span>sec</p>
+      </div>
+      <div>
+        <div class="result-text
+        ">Result : <span id ="resultofstudent"></span></div>
+      </div>
+    </div>
+  
+    <div class="table-container">
+      <div class="table-wrapper">
+        <table class="table">
+          <caption><h3>Results for first 2000 keystrokes</h3></caption>
+          <tr>
+            <th>Attribute</th>
+            <th>Result</th>
+          </tr>
+          <tr>
+          <td>Total Typed Keystrokes Count in First 2000 Keystrokes:</td>
+          <td id = "totalKeyStrokes2000"></td>
+        </tr>
+        <tr>
+          <td>Correct typed Keystrokes count in first 2000 Keystrokes</td>
+          <td id ="correctKeyStroke2000"></td>
+        </tr>
+        <tr>
+          <td>Incorrect typed Keystrokes count in first 2000 Keystrokes</td>
+          <td id="incorrectKeyStrokes2000"></td>
+        </tr>
+        <tr>
+          <td>Total Words Count in first 2000 keystrokes</td>
+          <td id="totalWords2000"></td>
+        </tr>
+        <tr>
+          <td>Correct Words Count in first 2000 keystrokes</td>
+          <td id="correctWords2000"></td>
+        </tr>
+        <tr>
+          <td>Incorrect Word Counts in first 2000 keystrokes</td>
+          <td id="incorrectWords2000"></td>
+        </tr>
+        <tr>
+          <td>Correct Keystrokes % In First 2000 Keystrokes:</td>
+          <td ><span id="correctkeystrokesPercent2000"></span>%</td>
+        </tr>
+        <tr>
+          <td>Result according to correct keystrokes in first 2000 keystrokes</td>
+          <td id="resultofstudent2000"></td>
+        </tr>
+        </table>
+      </div>
+  
+      <div class="table-wrapper">
+        <table class="table table-alt"> <!-- Added class for second table -->
+          <caption><h3>Result for full Passage</h3></caption>
+          <tr>
+            <th>Attribute</th>
+            <th>Result</th>
+            <tr>
+            <td>Total Typed Keystrokes Count in passage:</td>
+            <td id = "totalKeyStrokesfull"></td>
+          </tr>
+          <tr>
+            <td>Correct typed Keystrokes count in passage</td>
+            <td id ="correctKeyStrokefull"></td>
+          </tr>
+          <tr>
+            <td>Incorrect typed Keystrokes count in passage</td>
+            <td id="incorrectKeyStrokesfull"></td>
+          </tr>
+          <tr>
+            <td>Total Words Count in Passage</td>
+            <td id="totalWordsfull"></td>
+          </tr>
+          <tr>
+            <td>Correct Words Count in Passage</td>
+            <td id="correctWordsfull"></td>
+          </tr>
+          <tr>
+            <td>Incorrect Word Counts in Passage</td>
+            <td id="incorrectWordsfull"></td>
+          </tr>
+          <tr>
+            <td>Correct Keystrokes % In Passage:</td>
+            <td ><span id="correctkeystrokesPercentfull"></span>%</td>
+          </tr>
+          <tr>
+            <td>Result according to correct keystrokes in Passage</td>
+            <td id="resultofstudentfull"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  
+    <div class="instructions-container">
+      <div class="instructions">
+        <h3>Instructions:</h3>
+        <p>Type the given passage accurately and quickly.</p>
+      </div>
+  
+      <div class="table-wrapper">
+        <table class="table table-alt-2"> <!-- Added class for third table -->
+          <caption><h3>Additional Metrics</h3></caption>
+          <tr>
+            <th>Attribute</th>
+            <th>Result</th>
+          </tr>
+          </tr>
+            <tr>
+              <td>Character per minute (CPM)</td>
+              <td id="cpm"></td>
+            </tr>
+            <tr>
+              <td>Gross Words Per Minute (GWPM)</td>
+              <td id="gwpm"></td>
+            </tr>
+            <tr>
+              <td>Net Words Per Minute (NWPM)</td>
+              <td id="nwpm"></td>
+            </tr>
+            <tr>
+              <td>Accuracy</td>
+              <td ><span id="accuracy"></span>%</td>
+            </tr>
+            <tr>
+              <td>Backspace Count</td>
+              <td id="backspaceCount1"></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  
+    <div class="exit-button-container">
+      <button onclick="hideResult2();enableInput()">Exit To Compare Screen</button>
+    </div>
+  
+  
+    </div>
+  </div>
+</div>
+
+
+<div id="comparescreen" class="container2">
+  <!-- Box 1: Actual Passage -->
+  <div class="box2">
+    <h4>Actual Passage:</h4>
+    <p id="box1"></p>
+  </div>
+
+  <!-- Box 2: Typed Passage -->
+  <div class="box2">
+    <h4>Typed Passage:</h4>
+    <p id="box2"></p>
+    <!-- Button Container -->
+    <div class="button-container">
+      <button onclick="showPopup();resetTimer()">Submit</button>
+      <button onclick="hideCompareScreen();enableInput()">Exit</button>
+    </div>
+  </div>
+</div>
+<script src="passages.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
